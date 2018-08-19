@@ -1,0 +1,43 @@
+version: "2"
+services:
+  wordpress:
+    image: wordpress:4.9-php5.6
+    ports:
+      - 7001:80
+    volumes:
+      - ./www/html/wp-content:/var/www/html/wp-content
+    links:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: "mysql:3306"
+      WORDPRESS_DB_NAME: vue-wp-project
+      WORDPRESS_DB_USER: vwp_user
+      WORDPRESS_DB_PASSWORD: testtest
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
+    working_dir: /var/sql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: vue-wp-project
+      MYSQL_USER: vwp_user
+      MYSQL_PASSWORD: testtest
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+        PMA_ARBITRARY: 1
+        PMA_HOST: "mysql:3306"
+        PMA_USER: vwp_user
+        PMA_PASSWORD: testtest
+    links:
+      - mysql
+    ports:
+       - '8080:80'
+    volumes:
+       - /sessions      
+volumes:
+    db-data:
+      driver: local
