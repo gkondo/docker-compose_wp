@@ -1,8 +1,8 @@
 まず初めに、dockerとvirtualbox をインストールすること
 
 1.適当な場所に展開して、docker-compose.ymlの階層にcd
-2. docker-machine create --driver virtualbox docker-compose_wp
-3. eval $(docker-machine env docker-compose_wp)
+2. docker-machine create --driver virtualbox dockercomposewp
+3. eval $(docker-machine env dockercomposewp)
 4. docker-compose up -d
 　※2,3の 「docker-compose_wp 」の表記は、てきとうに変更する
 5.表示のURLを確認するコマンド　「docker-machine ls 」
