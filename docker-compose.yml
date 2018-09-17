@@ -3,14 +3,15 @@ services:
   wordpress:
     image: wordpress:4.9-php5.6
     ports:
-      - 7001:80
+      - 7002:80
     volumes:
-      - ./www/html/wp-content:/var/www/html/wp-content
+      - ./www/html/wp-content/themes:/var/www/html/wp-content/themes
+      - ./www/html/wp-content/updraft:/var/www/html/wp-content/updraft
     links:
       - mysql
     environment:
       WORDPRESS_DB_HOST: "mysql:3306"
-      WORDPRESS_DB_NAME: vue-wp-project
+      WORDPRESS_DB_NAME: docks
       WORDPRESS_DB_USER: vwp_user
       WORDPRESS_DB_PASSWORD: testtest
   mysql:
@@ -22,7 +23,7 @@ services:
     working_dir: /var/sql
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
-      MYSQL_DATABASE: vue-wp-project
+      MYSQL_DATABASE: docks
       MYSQL_USER: vwp_user
       MYSQL_PASSWORD: testtest
   phpmyadmin:

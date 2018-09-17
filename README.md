@@ -1,8 +1,8 @@
 まず初めに、dockerとvirtualbox をインストールすること
 
 1.適当な場所に展開して、docker-compose.ymlの階層にcd
-2. docker-machine create --driver virtualbox dockercomposewp
-3. eval $(docker-machine env dockercomposewp)
+2. docker-machine create --driver virtualbox docks
+3. eval $(docker-machine env docks)
 4. docker-compose up -d
 　※2,3の 「docker-compose_wp 」の表記は、てきとうに変更する
 5.表示のURLを確認するコマンド　「docker-machine ls 」
@@ -33,3 +33,8 @@ docker-machine の削除
  docker-machine rm
 
 
+--------
+コンテナの中に入る
+ docker ps
+
+ docker exec -it [コンテナ名] /bin/bash
