@@ -38,3 +38,13 @@ docker-machine の削除
  docker ps
 
  docker exec -it [コンテナ名] /bin/bash
+
+
+ --------
+ <updraftからの復元>
+
+1)updraftをインストール
+2)wp-content/updraft にupdraftの復元データを入れる
+3)updraftから復元
+4)dbにアクセス
+5)wp-options のsite urlとurlを上記の表示URLに書き換える
